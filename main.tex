@@ -40,6 +40,27 @@
 \maketitle
 \thispagestyle{empty}
 
+\newpage
+\thispagestyle{empty}
+\section*{Introduction}
+First and foremost I want to clarify that by no means am I an expert on the presented
+topics or any topics in mathematics for that matter. I have wanted to study complex
+geometry for quite some time but was unable take a course or do research in the area.
+So this is me exploring complex geometry and some of the topics that are parallel.
+Most of this information is new to me at the time of writing. Also worth noting,
+I am writing this with a VERY casual approach. I am documenting my
+journey of learning complex geometry and whatever may branch off of it. I'm staring
+with a quick refreshed on some important ideas from differential geometry such as
+charts, atlases etc. From there, a quick review of some complex analysis then a
+quick interlude with some exterior algebra. Exterior algebra is something I have had
+little to no exposure to so it will be interesting to explore it's connection to geometry.
+Nothing too technical is needed from exterior algebra to study complex geometry at a beginner
+level, however we do need exterior powers and exterior products at the minmum. Then
+from there I will start to dive into complex manifolds and Kähler geometry. It was
+to my suprise that complex geometry relied heavily on topics from algebraic geometry,
+so that will be quite the learning curve as well. From Kähler geometry, I am going
+to go wherever my interest takes me. If I find something interesting along the way,
+I will more than likely dive into it a little deeper.
 
 \newpage
 \thispagestyle{empty}
@@ -49,7 +70,8 @@
 \newpage
 \clearpage
 
-\section*{Introduction}
+
+
 
 \newpage
 
@@ -57,7 +79,7 @@
 
 
 \section{Complex Analysis Review}
-Before we can go too deep in Khäler manifolds (and some Riemannian geometry in
+Before we can go too deep in Kähler manifolds (and some Riemannian geometry in
 general), we need to have a quick review of (multivariate) complex analysis.
 
 \subsection{Holomorphic Functions}
@@ -102,6 +124,9 @@ $f$ is related to and defined by the Cauchy-Riemann equations:
     J(f)(z):= \bigg(\dfrac{\partial f_i}{\partial z_j}(z)\bigg), \ 1 \leq i \leq n, \
     1 \leq j \leq m
 \end{equation*}
+Recall from differential geometry that Jacobian matrices define transition maps.
+The complex Jacobian matrices also play a part in complex manifolds as we will see
+later.
 
 \section{Exterior Algebra Interlude}
 
@@ -116,7 +141,7 @@ definitions in differential geometry. We start by defining an analogue for an at
     \C^n$ and the transition functions are holomorphic.
 \end{definition}
 
-\vspace{1cm}
+\vspace{.5cm}
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
@@ -169,6 +194,21 @@ definitions in differential geometry. We start by defining an analogue for an at
 \end{tikzpicture}
 \end{center}
 
+\vspace{.5cm}
+
+A map $f: X \to Y$ between differentiable manifolds, is holomorphic if the map:
+\begin{equation*}
+    \phi \cdot f \cdot \varphi^{-1}: \varphi(f^{-1}(U)\cap U)) \to \phi(V)
+\end{equation*}
+is holomorphic. Here the map $T_J$ is the transition map given by the Jacobian matrix.
+Note that $\varphi$ and $\phi$ map to a respective open subset of $\C^n$ (perhaps all of $\C^n$).
+\begin{definition}
+Two differentiable manifolds $X$ and $Y$ are \ten{biholomorphic}
+(or isomorphic) if there exists a holomorphic homeomorphism between them.
+\end{definition}
+
+So in the picture above, if $f$ is a holomorphic homeomorphism, that would imply
+$X$ and $Y$ are biholomorphic.
 
 
 
