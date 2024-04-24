@@ -7,6 +7,7 @@
 \usepackage{subcaption}
 \usepackage{titlesec}
 \usepackage{setspace}
+\usepackage{tikz}
 \setlength\parindent{0pt}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -51,13 +52,17 @@
 \section*{Introduction}
 
 \newpage
+
+\section{Foundations of Differential Geometry}
+
+
 \section{Complex Analysis Review}
 Before we can go too deep in Khäler manifolds (and some Riemannian geometry in
 general), we need to have a quick review of (multivariate) complex analysis.
 
 \subsection{Holomorphic Functions}
 
-\begin{definition}\label{1.1}
+\begin{definition}\label{def 3.1}
     Given an open set $\Omega \in \C$, a function $f: \Omega \to \C$ is \ten{analytic}
     if for all $z_0 \in \Omega$ there exists a ball of radius $\varepsilon>0$ about
     $z_0$ such that $f$ has a well-defined power series:
@@ -73,7 +78,7 @@ However, in complex analysis these two definitions happen to be equivalent so th
 are often use interchangeabley. The proof is not too difficult but we omit it here.
 We will however establish the exact definition of holomorphic.
 
-\begin{definition}\label{1.2}
+\begin{definition}\label{3.2}
     A function $f: \Omega \to \C$, typically expressed as $f(x,y) = u(x,y) + iv(x,y)$,
     is \ten{holomorphic} if it satisfies the Cauchy-Riemannan
     equations:
@@ -97,4 +102,81 @@ $f$ is related to and defined by the Cauchy-Riemann equations:
     J(f)(z):= \bigg(\dfrac{\partial f_i}{\partial z_j}(z)\bigg), \ 1 \leq i \leq n, \
     1 \leq j \leq m
 \end{equation*}
+
+\section{Exterior Algebra Interlude}
+
+\section{Complex Manifolds}
+Now we have all the tools to study complex manifolds via their charts, transition
+maps, and morphisms. First we will look at the complex equivalents of some foundational
+definitions in differential geometry. We start by defining an analogue for an atlas.
+
+\begin{definition}
+    A \ten{holomorphic atlas} on a differentiable manifold $M$ is an atlas
+    $\{(\Omega_i, \varphi_i)\}$ such that $\Omega_i \cong \varphi_i(\Omega_i) \subseteq
+    \C^n$ and the transition functions are holomorphic.
+\end{definition}
+
+\vspace{1cm}
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{center}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Polygon Curved [id:ds20814686542469296] 
+\draw   (140,68) .. controls (160,58) and (250,48) .. (230,68) .. controls (210,88) and (216,97.6) .. (236,127.6) .. controls (256,157.6) and (143,170.6) .. (123,140.6) .. controls (103,110.6) and (120,78) .. (140,68) -- cycle ;
+%Shape: Polygon Curved [id:ds16655262050332986] 
+\draw   (402,65) .. controls (411,34.4) and (426,78.6) .. (478,58.6) .. controls (530,38.6) and (521,114.6) .. (541,144.6) .. controls (561,174.6) and (365,156.2) .. (385,124.6) .. controls (405,93) and (393,95.6) .. (402,65) -- cycle ;
+%Curve Lines [id:da8606798953332562] 
+\draw    (232,94) .. controls (271.6,64.3) and (324.92,59.69) .. (380.32,89.68) ;
+\draw [shift={(382,90.6)}, rotate = 208.97] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Polygon Curved [id:ds6793981765658346] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}] (188,113.6) .. controls (214,130.6) and (202,134.6) .. (175,138.6) .. controls (148,142.6) and (162,96.6) .. (188,113.6) -- cycle ;
+%Shape: Polygon Curved [id:ds8163663421596739] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}] (459,128) .. controls (439,98) and (507,111.6) .. (499,132.6) .. controls (491,153.6) and (479,158) .. (459,128) -- cycle ;
+%Curve Lines [id:da7463153933358471] 
+\draw    (177,129) .. controls (138.19,190.29) and (213.24,146.05) .. (189.37,218.5) ;
+\draw [shift={(189,219.6)}, rotate = 288.67] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da8802878285570561] 
+\draw    (480,131) .. controls (478.02,187.03) and (456.44,174.85) .. (445.33,217.3) ;
+\draw [shift={(445,218.6)}, rotate = 284.04] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (298,43.4) node [anchor=north west][inner sep=0.75pt]    {$f$};
+% Text Node
+\draw (164,33.4) node [anchor=north west][inner sep=0.75pt]    {$X$};
+% Text Node
+\draw (449,34.4) node [anchor=north west][inner sep=0.75pt]    {$Y$};
+% Text Node
+\draw (193,96.4) node [anchor=north west][inner sep=0.75pt]    {$U$};
+% Text Node
+\draw (496,91.4) node [anchor=north west][inner sep=0.75pt]    {$V$};
+% Text Node
+\draw (178,230.4) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{C}^{n}$};
+% Text Node
+\draw (437,230.4) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{C}^{n}$};
+% Text Node
+\draw (303,216.4) node [anchor=north west][inner sep=0.75pt]    {$T_{J}$};
+% Text Node
+\draw (163,182.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi $};
+% Text Node
+\draw (428,177.4) node [anchor=north west][inner sep=0.75pt]    {$\phi $};
+% Connection
+\draw    (203,239) -- (432,239) ;
+\draw [shift={(434,239)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+\end{tikzpicture}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
