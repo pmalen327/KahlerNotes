@@ -48,12 +48,13 @@ topics or any topics in mathematics for that matter. I have wanted to study comp
 geometry for quite some time but was unable take a course or do research in the area.
 So this is me exploring complex geometry and some of the topics that are parallel.
 Most of this information is new to me at the time of writing. Also worth noting,
-I am writing this with a VERY casual approach. I am documenting my
-journey of learning complex geometry and whatever may branch off of it. I'm staring
-with a quick refreshed on some important ideas from differential geometry such as
-charts, atlases etc. From there, a quick review of some complex analysis then a
-quick interlude with some exterior algebra. Exterior algebra is something I have had
-little to no exposure to so it will be interesting to explore it's connection to geometry.
+I am writing this with a VERY casual approach so my language and verbiage may not be
+as formal or precise, I'm writing what my brain is thinking. I am documenting my
+journey of learning complex geometry and whatever may branch off of it. I'm starting
+with a quick refresher on some important ideas from differential geometry such as
+charts, atlases etc. From there, a quick review of some complex analysis then an
+interlude with some exterior algebra. Exterior algebra is something I have had
+little to so it will be interesting to explore it's connection to geometry.
 Nothing too technical is needed from exterior algebra to study complex geometry at a beginner
 level, however we do need exterior powers and exterior products at the minmum. Then
 from there I will start to dive into complex manifolds and Kähler geometry. It was
@@ -80,7 +81,7 @@ I will more than likely dive into it a little deeper.
 
 \section{Complex Analysis Review}
 Before we can go too deep in Kähler manifolds (and some Riemannian geometry in
-general), we need to have a quick review of (multivariate) complex analysis.
+general), we need to have a quick review of complex analysis.
 
 \subsection{Holomorphic Functions}
 
@@ -95,10 +96,13 @@ general), we need to have a quick review of (multivariate) complex analysis.
 \end{definition}
 
 Some refer to this definition as a \textbf{holomorphic} function but this is technically
-incorrect. Analyticity is a local property while being holomorphic is a global property.
-However, in complex analysis these two definitions happen to be equivalent so they 
-are often use interchangeabley. The proof is not too difficult but we omit it here.
-We will however establish the exact definition of holomorphic.
+incorrect. Analyticity is a local property defined about some $\varepsilon$-neighbordhood
+whereas being holomorphic is a little more general. The differentiable property of
+complex functions is defined only pointwise. A classical example of this difference
+would be a function that is only differentiable about a line and thus not analytic. 
+However, in complex analysis these two definitions (analytic and holomorphic) happen
+to be equivalent so they are often use interchangeabley. The proof is not too difficult
+but we omit it here. We will however establish the exact definition of holomorphic.
 
 \begin{definition}\label{3.2}
     A function $f: \Omega \to \C$, typically expressed as $f(x,y) = u(x,y) + iv(x,y)$,
@@ -208,8 +212,82 @@ Two differentiable manifolds $X$ and $Y$ are \ten{biholomorphic}
 \end{definition}
 
 So in the picture above, if $f$ is a holomorphic homeomorphism, that would imply
-$X$ and $Y$ are biholomorphic.
+$X$ and $Y$ are biholomorphic.\\
 
+Another really important topic in the study of manifolds is the idea of a submanifold.
+In a very loose sense, we can think of these as subsets of manifolds.
+
+\begin{definition}
+    Let $X$ be a complex manifold with dimension $n$ and $Y \subseteq X$ a differentiable
+    manifold of dimension $2k$. $Y$ is a \ten{complex submanifold} of $X$ of dimension
+    $k$ if there exists a holomorphic atlas $\{ ( U_i, \varphi_i )\}$ of $X$ such
+    that $\varphi: U_i \cap Y \cong \varphi(U_i) \cap \C^k$ is a biholomorphism.
+\end{definition}
+
+We identify $\C^k \subseteq \C^n$ as $(z_1, \hdots, z_k, 0, \hdots, 0)$ with zeroes
+to the $n$-th coordinate.\\
+
+Now we will shift gears just a little and look at some very foundational objects in 
+complex geometry and algebraic geometry in general. These are some pretty heavy duty
+ideas and they are not easy to grasp by any means. We will try to give visual representations
+as much as possible, but note that it may take a lot of time to understand some of
+the following theory and that's totally normal.\\
+
+\begin{definition}
+    Let $X$ be a topological space. A \ten{presheaf} $F$ of sets on $X$ conatins
+    the following:
+    \begin{itemize}
+        \item For each open set $U$ of $X$, there exists a set $F(U)$ denoted
+        $\Gamma(U,F)$. Elements of this set are \ten{sections} of $F$ over $U$.
+        The sections of $F$ over $X$ are called the \ten{global sections} of $F$.
+        \item For each inclusion of open sets $V \subseteq U$, there is a function
+        $\textnormal{res}_{V,U} \hspace{-2pt}: \hspace{-2pt}F(U) \to F(V)$. These are \ten{restriction morphisms}.
+        If $s \in F(U)$, this its restriction $\textnormal{res}_{V,U}$ is denoted $s \mid_V$.
+    \end{itemize}
+    The restriction morphisms must satisfy two additional properties:
+    \begin{itemize}
+        \item For every open $U \subseteq X$, the restriction morphism
+        $\textnormal{res}_{U,U} \hspace{-5pt}:\hspace{-5pt} F(U) \to F(U)$ is the identity morphism on $F(U)$.
+        \item For three open sets $W \subseteq V \subseteq U$, then we have
+        $\textnormal{res}_{W,V} \circ \textnormal{res}_{V,U} = \textnormal{res}_{W,U}$.
+    \end{itemize}
+\end{definition}
+
+Now for a concrete example, consider a set $U$, we can then assign the set $C^0(U)$
+of all continuous real-valued functions on $U$. The restriction maps here are given
+by restricting a continuous function on $U$ to a an open subset $V \subseteq U$.
+In this case, $C^0(U)$ is a presheaf on the set $U$.\\
+
+Presheaves are a great tool but they lack a little bit of power. We really want 
+to extend this idea to an entire space or set to retrieve global information.
+
+\begin{definition}
+    A presheaf is a \ten{sheaf} if it satisfies the following:
+    \begin{itemize}
+        \item (Locality) Let $U$ be an open set, $\{U_i\}$ is an open cover of $U$
+        with $U_i \subseteq U$ for all $i$, and $s,t \in F(U)$ are sections. If
+        $s\mid_{U_i} = t \mid_{U_i}$ for all $i$ then $s=t$.
+        \item (Gluing) Let $U$ be an open set, $\{U_i\}$ is an open cover of $U$
+        with $U_i \subseteq U$ for all $i$, and $\{s_i \in F(U_i)\}$ is a family
+        of sections. If all pairs of sections agree on the overlap of their domains,
+        $s_i\mid_{U_i\cap U_j} = s_j\mid_{U_i\cap U_j}$ for all indices $i,j$, then
+        there exists a section $s\in F(U)$ such that $s_i\mid_{U_i} = s_i$ for all $i$.
+    \end{itemize}
+\end{definition}
+
+In a nutshell, presheaves assign data to sets locally while sheaves let us extend
+this globally. We will mostly be concerned with a sheaf of holomorphic functions
+$\mathcal{H}(-)$. However, there will certainly be more applications. Yes that is
+a lot to take in, but now we will give some visuals to hopefully make things
+easier to grasp.
+
+\begin{definition}
+    Let $X$ be a complex manifold. An \ten{analytic subvariety} of $X$ is a closed
+    subset $Y \subseteq X$ such that for each $x \in X$, there exists an open neighbordhood
+    $U \in X$ such that $U \cap Y$ is of the form 
+    $U \cap Y = \{ x \in U \mid f_1(x) = \hdots = f_k(x) = 0\}$ for finitely many
+    holomorphic functions $f_i$ in the sheaf $\mathcal{H}(U)$.
+\end{definition}
 
 
 
