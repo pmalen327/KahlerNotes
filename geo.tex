@@ -43,7 +43,7 @@ spaces in $\mathfrak{J}^k(V)$ we have to introduce a general notion of a product
     \end{equation*}
 \end{definition}
 
-It is extremely important to note that the tensor produc does NOT commute in general.
+It is extremely important to note that the tensor product does NOT commute in general.
 Changing the order of the factors will yield two entirely different spaces. However,
 it does benefit from associativity and some other convenient properties:
 
@@ -54,5 +54,53 @@ it does benefit from associativity and some other convenient properties:
     (S \otimes T) \otimes U &= S \otimes (T \otimes U)
 \end{align*}
 
+To make more sense of tensors and their structure, we introduce some more exterior
+algebra. We need to introduce a special type of tensor first.
+
+\begin{definition}
+    An \ten{alternating tensor} of degree $k$ on a vector space $V$ is a map
+    $T: V \times \hdots \times V \to \mathbb{K}$ such that:
+    \begin{itemize}
+        \item $T(u_1,\hdots,u_i,\hdots,u_k) = -T(u_1,\hdots,u_j,\hdots,u_i,\hdots,u_k)$
+        \item $T(\lambda_1 v_1 + \lambda_2 v_2, u_2, \hdots, u_k) = \lambda_1T(
+        v_1,u_2,\hdots,u_k) + \lambda_2 T(v_2,u_2,\hdots,u_k)$
+    \end{itemize}
+\end{definition}
+
+There is nothing crazy going on here but it is worth noting that the alternating
+property switches the $u_i$ and $u_j$. It hints at some sort of ani-symmetric property
+but not quite. Now we can look at another important ``collection'' of tensors.
+
+\begin{definition}
+    The \ten{$k$-th} exterior power $\Lambda^kV$ of a finite dimensional vector
+    space $V$ is the dual space of the vector space of alternating tensors of degree
+    $k$ on $V$. Elements of $\Lambda^kV$ are \ten{$k$-vectors}.
+\end{definition}
+
+Now we have this dual space of tensors but we need additional structure on it. We
+introduce another product
+
+\begin{definition}
+    Given $v_1,\hdots,u_k \in V$, the \ten{exterior product} or \ten{wedge product}
+    $v_1 \wedge \hdots \wedge v_k \in \Lambda^k V$ is the linear map to $\mathbb{K}$
+    which, on analternating tensor $T$ takes the value:
+    \begin{equation*}
+        (v_1 \wedge \hdots \wedge v_k)(T) = T(v_1,\hdots,v_k)
+    \end{equation*}
+\end{definition}
+
+The exterior product has a few important properties:
+\begin{itemize}
+    \item it is linear in each variable independently
+    \item internchanging two variables changes the sign of the product
+    \item two variables are the same, the product vanishes
+    \item taking the product of tensors results in a tensor of a larger rank than
+    either factor
+\end{itemize}
+
+
+One may be tempted to ask why not just use the tensor product? This wouldn't work
+as the tensor product is for taking products of ``spaces" while the exterior
+product allows us to take products of $k$-vectors.
 
 \subsection{Integration on Chains}

@@ -1,4 +1,59 @@
 \section{Complex Manifolds}
+
+\subsection{Complex Analysis Review}
+Before we can go too deep in Kähler manifolds (and some Riemannian geometry in
+general), we need to have a quick review of complex analysis.
+
+\subsubsection{Holomorphic Functions}
+
+\begin{definition}\label{def 3.1}
+    Given an open set $\Omega \in \C$, a function $f: \Omega \to \C$ is \ten{analytic}
+    if for all $z_0 \in \Omega$ there exists a ball of radius $\varepsilon>0$ about
+    $z_0$ such that $f$ has a well-defined power series:
+    \begin{equation*}
+        f(z) = \sum_{n=0}^\infty a_n (z-z_0)^n, \quad \forall z \in B_\varepsilon
+        (z_0)
+    \end{equation*}
+\end{definition}
+
+Some refer to this definition as a \textbf{holomorphic} function but this is technically
+incorrect. Analyticity is a local property defined about some $\varepsilon$-neighbordhood
+whereas being holomorphic is a little more general. The differentiable property of
+complex functions is defined only pointwise. A classical example of this difference
+would be a function that is only differentiable about a line and thus not analytic. 
+However, in complex analysis these two definitions (analytic and holomorphic) happen
+to be equivalent so they are often used interchangeabley. The proof is not too difficult
+but we omit it here. We will however establish the exact definition of holomorphic.
+
+\begin{definition}\label{3.2}
+    A function $f: \Omega \to \C$, expressed as $f(x,y) = u(x,y) + iv(x,y)$,
+    is \ten{holomorphic} if it satisfies the Cauchy-Riemannan
+    equations:
+    \begin{equation*}
+        \dfrac{\partial u}{\partial x} = \dfrac{\partial v}{\partial y}, \quad
+        \dfrac{\partial u}{\partial y} = - \dfrac{\partial u}{\partial x}
+    \end{equation*}
+\end{definition}
+In fact, we can generalize this to $\C^n$. Now let $f: \Omega \subseteq \C^n \to
+\C^n$. This function is holomorphic on $\C^n$ if it satisfies the generalized 
+Cauchy-Riemann equations:
+\begin{equation*}
+    \dfrac{\partial u}{\partial x_i} = \dfrac{\partial v}{\partial y_i}, \quad 
+    \dfrac{\partial u}{\partial y_i} = - \dfrac{\partial v}{\partial x_i},\quad
+    \text{for } i = 1, 2, \hdots , n
+\end{equation*} 
+In laymen's terms, $f$ is holomorphic in every ``direction'' or coordinate. This
+gives us a perfect segue into how the complex Jacobian matrix for a holomorphic function
+$f$ is related to and defined by the Cauchy-Riemann equations:
+\begin{equation*}
+    J(f)(z):= \bigg(\dfrac{\partial f_i}{\partial z_j}(z)\bigg), \ 1 \leq i \leq n, \
+    1 \leq j \leq m
+\end{equation*}
+Recall from differential geometry that Jacobian matrices define transition maps.
+The complex Jacobian matrices also play a part in complex manifolds as we will see
+later.
+
+\subsection{Complex Manifolds}
 Now we have all the tools to study complex manifolds via their charts, transition
 maps, and morphisms. First we will look at the complex equivalents of some foundational
 definitions in differential geometry. We start by defining an analogue for an atlas.
@@ -91,6 +146,7 @@ In a very loose sense, we can think of these as subsets of manifolds.
 We identify $\C^k \subseteq \C^n$ as $(z_1, \hdots, z_k, 0, \hdots, 0)$ with zeroes
 to the $n$-th coordinate.\\
 
+\subsubsection{Algebra of Complex Manifolds}
 Now we will shift gears just a little and look at some very foundational objects in 
 complex geometry and algebraic geometry in general. These are some pretty heavy duty
 ideas and they are not easy to grasp by any means. We will try to give visual representations
