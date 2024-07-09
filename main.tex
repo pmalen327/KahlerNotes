@@ -7,7 +7,8 @@
 \usepackage{subcaption}
 \usepackage{titlesec}
 \usepackage{setspace}
-\usepackage{tikz}
+\usepackage{tikz, tcolorbox}
+\tcbuselibrary{theorems}
 \setlength\parindent{0pt}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -15,6 +16,8 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{example}{Example}[section]
+\newtheorem{prop}[theorem]{Proposition}
+
 
 % Will def need this later, should probably do this rn though :(
 % \usepackage[backend=biber]{biblatex}
@@ -29,6 +32,32 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\ten}[1]{\textnormal{\textbf{#1}}}
+\newcommand{\thmbox}[2]{
+    \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title={#1}]
+        {#2}    
+        \begin{theorem}
+            uhhh
+        \end{theorem}
+    \end{tcolorbox}
+}
+
+\newcommand{\exmpbox}[2]{
+    \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title={#1}]
+        {#2}    
+        \begin{example}
+            temp
+        \end{example}
+    \end{tcolorbox}
+}
+
+\newcommand{\defbox}[2]{
+    \begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title={#1}]
+        {#2}    
+        \begin{definition}
+            temp
+        \end{definition}
+    \end{tcolorbox}
+}
 
 
 \title{Differential and Complex Algebraic Geometry}
@@ -46,9 +75,9 @@
 
 \thispagestyle{empty}
 \tableofcontents
+\include{matrix_exponential}
 
-\include{geo}
-
-\include{manifolds}
+% this section is the complex analysis primer and complex geo primer
+% \include{manifolds}
 
 \end{document}
