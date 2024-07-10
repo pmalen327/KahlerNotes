@@ -2,20 +2,91 @@
 \subsection{The Exponential Map and Matrix Groups}
 Given an $n \times n$ matrix $A$, we want to find a way to find $e^A$. We can actually
 just do this with the usual power series:
+
 \begin{equation}\label{eq:1}
     e^A = I_n + \sum_{p \ge 1} \frac{A^p}{p!} = \sum_{p \ge 0} \frac{A^p}{p!}
 \end{equation}
+
 Using an inductive proof, we can show that this is well defined. But we won't write
 it out here.
 
-\thmbox{contents}{
-    how to cite thm in title
-}
+\begin{boxex}{}{trigexample}
+    Consider the matrix 
+    \begin{equation*}
+        A=
+        \begin{pmatrix}
+            0 & -\theta\\
+            \theta & 0
+        \end{pmatrix}
+    \end{equation*}
+    We want to find a way to express the powers $A^n$. We can factor out a $\theta$
+    to see
+    \begin{equation*}
+        \begin{pmatrix}
+            0 & -\theta\\
+            \theta & 0
+        \end{pmatrix}
+        = \theta
+        \begin{pmatrix}
+            0 & -1\\
+            1 & 0
+        \end{pmatrix}
+        \text{ and }
+        \begin{pmatrix}
+            0 & -\theta\\
+            \theta & 0
+        \end{pmatrix}^2
+        =-\theta^2 I_2
+    \end{equation*}
+    Now, let
+    \begin{equation*}
+        J = 
+        \begin{pmatrix}
+            0 & -1\\
+            1 & 0
+        \end{pmatrix}
+    \end{equation*}
+    we have
+    \begin{align*}
+        A^{4n} &= \theta^{4n}I_2\\
+        A^{4n+1} &= \theta^{4n+1}J\\
+        A^{4n+2} &= -\theta^{4n+2}I_2
+    \end{align*}
+    and so on.
 
-\exmpbox{contents}{
-    nothing here yet
-}
+    So we can now express $e^A$ as a power series
+    \begin{equation*}
+        e^A = I_2 + \frac{\theta}{1!}J - \frac{\theta^2}{2!}I_2 \hdots
+    \end{equation*}
+    Writing this out we will see that we actually get the power series for cosine
+    and sine, thus
+    \begin{equation*}
+        e^A = \cos \theta I_2 + \sin \theta J
+    \end{equation*}
+    or equivalently
+    \begin{equation*}
+        e^A = 
+        \begin{pmatrix}
+            \cos \theta & -\sin \theta\\
+            \sin \theta & \cos \theta
+        \end{pmatrix}
+    \end{equation*}
+    So we see $e^A$ is in fact a rotation matrix.
+\end{boxex}
 
-\defbox{contents}{
-    this means something
-}
+This is actually a general fact. If we have a skew-symmetric matrix $A$, then $e^A$
+is an orthogonal matrix with determinant $1$, or $e^A \in SO_n(\F)$. In fact, EVERY
+rotation matrix is of this form. To be explicit, the exponential map from the set
+of skew-symmetric matrices to the set of rotation matrices is surjective. But note
+that the exponential map is NOT surjective in general.
+
+\begin{boxprop}{}{expprop}
+    Let $A$ and $U$ be (real or complex) matrices and assume $U$ is invertible.
+    Then
+    \begin{equation*}
+        e^{UAU^{-1}} = Ue^AU^{-1}
+    \end{equation*}
+\end{boxprop}
+
+This is pretty obvious and its easily proven using an inductive proof. But I hate
+induction so of course I will not include the proof here. 
