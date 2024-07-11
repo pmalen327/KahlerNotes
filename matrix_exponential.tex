@@ -73,7 +73,7 @@ it out here.
 \end{boxex}
 
 This is actually a general fact. If we have a skew-symmetric matrix $A$, then $e^A$
-is an orthogonal matrix with determinant $1$, or $e^A \in SO_n(\F)$. In fact, EVERY
+is an orthogonal matrix with determinant $1$. In fact, EVERY
 rotation matrix is of this form. To be explicit, the exponential map from the set
 of skew-symmetric matrices to the set of rotation matrices is surjective. But note
 that the exponential map is NOT surjective in general.
@@ -112,10 +112,10 @@ properties that we might expect to hold are actually not true.
 \begin{boxprop}{Properties of Exponential Operator}{}
 
     \begin{itemize}
-        \item if $\{ \lambda_i \}_n$ are the eigenvalues of $A$, then $\{e^{\lambda_i}\}_n$
+        \item If $\{ \lambda_i \}_n$ are the eigenvalues of $A$, then $\{e^{\lambda_i}\}_n$
         are the eigenvalues of $e^A$
         \item $\det(e^A) = e^{ \text{tr} (A)}$
-        \item if $A$ and $B$ commute under multplication, then $e^{A+B} = e^Ae^B$
+        \item If $A$ and $B$ commute under multplication, then $e^{A+B} = e^Ae^B$
     \end{itemize}
 \end{boxprop}
 
@@ -125,7 +125,7 @@ First, recall the ``standard'' matrix groups.
 \begin{boxdef}{Common Matrix Groups}{}
     \begin{itemize}
         \item $GL_n(\F)$: The group of all invertible $n \times n$ matrices over
-        a field $\F$. This is the \textit{general linear group}
+        a field $\F$. This is the \textit{general linear group}.
         \item $SL_n(\F)$: The group of all invertible $n \times n$ matrices over
         a field $\F$ with determinant $+1$. This is the \textit{special linear group}.
         Note that this is a subgroup of the general linear group.
