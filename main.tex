@@ -7,14 +7,23 @@
 \usepackage{subcaption}
 \usepackage{titlesec}
 \usepackage{setspace}
-\usepackage{tikz, tcolorbox}
 \usepackage[dvipsnames]{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
 \tcbuselibrary{theorems}
 
 % Will def need this later, should probably do this rn though :(
 % \usepackage[backend=biber]{biblatex}
 % \let\cite=\supercite
 % \addbibresource{refs.bib}
+
+\def\@testdef #1#2#3{%
+  \def\reserved@a{#3}\expandafter \ifx \csname #1@#2\endcsname
+ \reserved@a  \else
+\typeout{^^Jlabel #2 changed:^^J%
+\meaning\reserved@a^^J%
+\expandafter\meaning\csname #1@#2\endcsname^^J}%
+\@tempswatrue \fi}
 
 \newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
 \newcommand{\R}{\mathbb{R}}
@@ -28,24 +37,24 @@
 
 \definecolor{purp}{RGB}{146, 5, 247}
 \NewTcbTheorem[number within=section]{boxthm}{Theorem}%
-{colback=purp!5!white,colframe=purp!75!black}{th}
+{breakable,colback=purp!5!white,colframe=purp!75!black}{th}
 
 \NewTcbTheorem[number within=section]{boxcor}{Corollary}%
-{colback=Blue!5!white,colframe=Blue!75!black}{th}
+{breakable,colback=Blue!5!white,colframe=Blue!75!black}{th}
 
 \NewTcbTheorem[number within=section]{boxlem}{Lemma}%
-{colback=Blue!5!white,colframe=Blue!75!black}{th}
+{breakable,colback=Blue!5!white,colframe=Blue!75!black}{th}
 
 \NewTcbTheorem[number within=section]{boxprop}{Proposition}%
-{colback=purp!5!white,colframe=purp!75!black}{th}
+{breakable,colback=purp!5!white,colframe=purp!75!black}{th}
 
 \definecolor{Blue}{RGB}{2, 101, 250}
 \NewTcbTheorem[number within=section]{boxdef}{Definition}%
-{colback=Blue!5!white,colframe=Blue!75!black}{th}
+{breakable,colback=Blue!5!white,colframe=Blue!75!black}{th}
 
 \definecolor{Green}{RGB}{5, 247, 138}
 \NewTcbTheorem[number within=section]{boxex}{Example}%
-{colback=Green!5!white,colframe=Green!75!black}{th}
+{breakable,colback=Green!5!white,colframe=Green!75!black}{th}
 
 \title{Differential and Complex Algebraic Geometry}
 \author{Preston Malen}

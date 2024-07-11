@@ -1,5 +1,5 @@
-\section{The Matrix Exponential}
-\subsection{The Exponential Map and Matrix Groups}
+\section{The Exponential Map and Matrix Groups}
+\subsection{The Matrix Exponential}
 Given an $n \times n$ matrix $A$, we want to find a way to find $e^A$. We can actually
 just do this with the usual power series:
 
@@ -92,5 +92,49 @@ lines. Now we will look at another important result that will be important when 
 start to look at some spectral properties of the exponential map.
 
 \begin{boxprop}{}{}
-    Given any complex $n \times n$ matrix $A$,  
+    Given any complex $n \times n$ matrix $A$, there is an invertible matrix $P$
+    and an upper-triangular matrix $T$ such that
+    \begin{equation*}
+        A = PTP^{-1}
+    \end{equation*}
+
+    \begin{proof}
+        (Sketch) Induct on $n$ if $f: \C \to \C$ is a linear map then there exists some basis
+        with respect to $f$ which can be represented as an upper-triangular matrix.
+    \end{proof}
+
+    But note this proof is very technical.
 \end{boxprop}
+
+The exponential operator has some nice properties. Some are expected but some
+properties that we might expect to hold are actually not true.
+
+\begin{boxprop}{Properties of Exponential Operator}{}
+
+    \begin{itemize}
+        \item if $\{ \lambda_i \}_n$ are the eigenvalues of $A$, then $\{e^{\lambda_i}\}_n$
+        are the eigenvalues of $e^A$
+        \item $\det(e^A) = e^{ \text{tr} (A)}$
+        \item if $A$ and $B$ commute under multplication, then $e^{A+B} = e^Ae^B$
+    \end{itemize}
+\end{boxprop}
+
+
+\subsection{Matrix Lie Groups}
+First, recall the ``standard'' matrix groups.
+\begin{boxdef}{Common Matrix Groups}{}
+    \begin{itemize}
+        \item $GL_n(\F)$: The group of all invertible $n \times n$ matrices over
+        a field $\F$. This is the \textit{general linear group}
+        \item $SL_n(\F)$: The group of all invertible $n \times n$ matrices over
+        a field $\F$ with determinant $+1$. This is the \textit{special linear group}.
+        Note that this is a subgroup of the general linear group.
+        \item $O(n)$: The group of all orthogonal $n\times n$ matrices. This is the
+        \textit{orthogonal group}.
+        \item $SO(n)$: The groups of all orthogonal $n\times n$ matrices with determinant
+        $+1$. This is the \textit{special orthogonal group}. Note this is a subgroup
+        of the orthogonal group.
+    \end{itemize}
+\end{boxdef}
+
+
