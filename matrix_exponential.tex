@@ -121,20 +121,60 @@ properties that we might expect to hold are actually not true.
 
 
 \subsection{Matrix Lie Groups}
-First, recall the ``standard'' matrix groups.
-\begin{boxdef}{Common Matrix Groups}{}
+First, recall the ``usual'' matrix groups.
+\begin{boxdef}{Common Lie Groups and Lie Algebras}{}
     \begin{itemize}
-        \item $GL_n(\F)$: The group of all invertible $n \times n$ matrices over
-        a field $\F$. This is the \textit{general linear group}.
-        \item $SL_n(\F)$: The group of all invertible $n \times n$ matrices over
-        a field $\F$ with determinant $+1$. This is the \textit{special linear group}.
-        Note that this is a subgroup of the general linear group.
-        \item $O(n)$: The group of all orthogonal $n\times n$ matrices. This is the
+        \item $GL(n, \R)$: The group of all real invertible $n \times n$ matrices.
+        This is the \textit{general linear group}.
+        \item $SL(n, \R)$: The group of all real invertible $n \times n$ matrices
+        with determinant $+1$. This is the \textit{special linear group}. Note that
+        this is a subgroup of the general linear group.
+        \item $O(n)$: The group of all real orthogonal $n\times n$ matrices. This is the
         \textit{orthogonal group}.
-        \item $SO(n)$: The groups of all orthogonal $n\times n$ matrices with determinant
+        \item $SO(n)$: The groups of all real orthogonal $n\times n$ matrices with determinant
         $+1$. This is the \textit{special orthogonal group}. Note this is a subgroup
         of the orthogonal group.
+        \item $\mathfrak{sl}(n, \R)$: The vector space of real $n \times n$ matrices with
+        null trace.
+        \item $\mathfrak{so}(n)$: The vector space of real skew-symmetric $n \times n$
+        matrices.
     \end{itemize}
 \end{boxdef}
+
+The groups from above are more than just groups, they have additional topological
+structure. They are topological spaces (viewed as subspaces of $\R^{n^2}$) with
+smooth operations, specifically, the inverse and multplication operations are 
+continuous. Further, they are in fact smooth manifolds (we will define this later).
+These are examples of \textit{Lie groups}; groups that are simultaneously topological
+spaces, and smooth manifolds. The above vector spaces are \textit{Lie algebras};
+tangent spaces at the identity of the respective group. The algebraic structure
+on Lie algebras is well defined, we will see later how far this defition extends.
+
+\begin{boxdef}{Lie bracket}{}
+    The \textit{Lie bracket} of a Lie algebra is the commutator
+    \begin{equation*}
+        [A, B] = AB - BA
+    \end{equation*}
+\end{boxdef}
+
+Note that if $A$ and $B$ commute, their Lie bracket is trivial. Later, we will see
+how this corresponds to conservative vector fields on manifolds. There is a really
+cool connection between Lie Groups and their Lie algebras, in fact, the exponential
+map is a map from the Lie algebra to the Lie group.
+\begin{align}\label{eq:2}
+    \exp: & \ \mathfrak{so}(n) \to SO(n)\\
+    \exp: & \ \mathfrak{sl}(n, \R) \to SL(n, \R)
+\end{align}
+This is really neat because it lets us parameterize the Lie group elements by the
+Lie algebra elements, which sounds weird but it will be really convenient later.
+
+Well what happened to the Lie algebras $\mathfrak{gl}(n, \R)$ and $\mathfrak{o}(n)$?
+As it turns out, these Lie algebras are actually equivalent to some already familiar
+vector spaces. It happens that $\mathfrak{gl}(n, \R)$ is just the vector space of
+all real $n\times n$ matrices, while $\mathfrak{o}(n) = \mathfrak{so}(n)$.
+
+
+
+
 
 
