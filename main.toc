@@ -1,3 +1,4 @@
 \contentsline {section}{\numberline {1}The Exponential Map and Matrix Groups}{4}{section.1}%
 \contentsline {subsection}{\numberline {1.1}The Matrix Exponential}{4}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Matrix Lie Groups}{5}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Symmetric and Positive Definite Matrices}{7}{subsubsection.1.2.1}%
