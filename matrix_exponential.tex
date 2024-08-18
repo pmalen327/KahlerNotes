@@ -212,6 +212,16 @@ in kinematics, robotics, etc.
     series for sine and cosine. Although I do not want to do it again.
 \end{boxprop}
 
+It is also worth mentioning \textit{Hermitian matrices}. They are a complex equivalent
+of orthogonal matrices, namely, a matrix $A$ is Hermitian if $A = \overline{A^T}$.
+There are similar matrix groups for such matrices. Usually we are concernd about The
+groups $H(n)$, $HP(n)$, and $HPD(n)$. These are the groups of Hermitian matrices,
+Hermitian positive semidefinite matrices, and the group of Hermitian positive definite
+matrices, respectively. We will talk about this in the next section but Hermitian
+matrices are very important and worth mentioning, they will show up a lot more when
+we look into K\"{a}hler stuff. We also have the unitary and special unitary matrix
+group but we will define these once they show up.
+
 \subsubsection{Symmetric and Positive Definite Matrices}
 Now we will backtrack a little bit and look at another important class of matrices,
 and consequently, groups. A matrix is \textit{positive semidefinite} if all of its
@@ -236,7 +246,54 @@ this notation to use boldface characters, it is however a pain to type sometimes
     \end{proof}
 \end{boxprop}
 
+\section{Adjoint Representations and Derivatives}
+This section is mainly for motivating the Lie bracket and its implications. We will
+use lots of matrix groups from the last section so its important to understand
+these groups and their properties. There is going to be a lot going on in this section
+and may be the most difficult section thus far so take your time, it took me a hot
+minute to get throught this.
 
+\subsection{Adjoint maps}
+Let the group of all real $n\times n$ matrices be denoted $M_n(\R)$. For some matrix
+$A\in M_n(\R)$, define two maps $L_A$ and $R_A$ (left and right lol) such that
+\begin{align*}
+    L_A(B) &= AB\\
+    R_A(B) &= BA
+\end{align*}
+for all $B\in M_n(\R)$. Now we want to define the adjoint. So for some $A\in GL(n,\R)$,
+we have
+\begin{equation*}
+    \textbf{Ad}_A: M_n(\R) \to M_n(\R)
+\end{equation*}
+Which is really just a conjugation in disguise
+\begin{equation}
+    \textbf{Ad}_A(B) = ABA^{-1}
+\end{equation}
+This is convenient because we are somewhat familiar with group conjugation and normal
+subgroups and what not. It is also worth noting that $\textbf{Ad}_A = L_A
+\circ R_{A^{-1}}$. This is obviously very easy to check. If we restrict $\textbf{Ad}_A$
+to $GL(n,\R)$ then $\textbf{Ad}_A$ is a group isomorphism. Note this map
+is not linear as $GL(n,R)$ is not a vector space. However, we still have sufficient
+structure to define the derivative of the adjoint map.
 
-
-
+When $B=I$, the map $d(\textbf{Ad}_A)_I$ is linear and we denote it as $\text{Ad}_A$
+and it is similarly defined as $\text{Ad}_A(X) = AXA^{-1}$ for all $X \in \mathfrak{gl}(n,\R)$.
+Remember that this just means $X$ is a real $n\times n$ (not necessarily invertible)
+matrix. Also note that $\text{Ad}_A \in GL(\mathfrak{gl}(n,\R))$, so the multplication
+operation is just given by composition
+\begin{equation*}
+    \text{Ad}_{AB} = \text{Ad}_A \circ \text{Ad}_B
+\end{equation*}
+This means that $A \mapsto \text{Ad}_A$ is a group homomorphism of $GL(\mathfrak{gl}(n,\R))$.
+This map is so special that it is called the \textit{adjoint representation} of
+$GL(n,\R)$. We make a small notation change for the adjoint
+\begin{equation*}
+    \text{Ad}: GL(n,\R) \to GL(\mathfrak{gl}(n,\R))
+\end{equation*}
+If the derivative of Ad exists at $I$, it is a linear map denoted
+\begin{equation}
+    d(\text{Ad})_I:\mathfrak{gl}(n,\R) \to \text{Hom}(\mathfrak{gl}(n,\R),\mathfrak{gl}(n,\R))
+\end{equation}
+And this is good because its exactly what we expect. The derivative is a linear approximation
+so it makes sense that the derivative operator here is linear, and when evaluated,
+lives in the homset of the Lie algebra.
