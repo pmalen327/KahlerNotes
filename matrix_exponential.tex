@@ -297,3 +297,35 @@ If the derivative of Ad exists at $I$, it is a linear map denoted
 And this is good because its exactly what we expect. The derivative is a linear approximation
 so it makes sense that the derivative operator here is linear, and when evaluated,
 lives in the homset of the Lie algebra.
+
+Now we will look at a beautiful formlua that relates the adjoint and exponential
+mapas as we'd expect.
+\begin{boxprop}{}{}
+    For any $X \in M_n(\R) = \mathfrak{gl}(n,\R)$, we have
+    \begin{equation*}
+        \text{Ad}_{e^X} = e^{\text{ad}_X} = \sum_{k=0}^\infty \frac{(\text{ad}_X)^k}{k!}
+    \end{equation*}
+\end{boxprop}
+
+The proof for this really isnt too bad but I don't want to write it out. 
+
+\subsection{Derivative of the Exponential Map}
+Ok now we are getting a little closer to doing some actual geometry, but not quite.
+
+There does exist an explicit formula for the exponential map but the computation isn't
+exactly nice so I just present it here without proof.
+
+\begin{boxprop}{Derivative of exp}{}
+    \begin{equation*}
+        d(\exp)_A = e^A \sum_{k=0}^{\infty}\frac{(-1)^k}{(k+1)!}(\text{ad}_A)^k
+    \end{equation*}
+    Or similarly, in terms of the ``right'' and ``left'' operators, we get
+    \begin{equation*}
+        d(\exp) = e^{L_A}\sum_{j=0}^\infty \frac{(-1)^j}{(j+1)!}(L_A - R_A)^j
+    \end{equation*}
+\end{boxprop}
+
+% I need to add some practice examples here
+
+We now have enough background on the exponential and adjoint operator to move forward
+and start to study manifolds and geometry in general.
